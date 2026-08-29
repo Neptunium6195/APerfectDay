@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>A Perfect Day!</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <div id="TitleScreen" style="display: block">
+            <h1 id="title" >A Perfect Day!</h1>
+            <button id="startBtn" type="button" onclick="hideTitle()">Start!</button>
+        </div>
+        <div id="DressUp" class="container" style="display: none">
+            <div id="Hi" class="inner-container">
+                <div class="inner-inner-container">
+                    <div class="main-text">
+                        <p1 id="text-content">hihihi</p1>
+                    </div>
+                    <div class="dressUp-container">
+                        <!--<button id="left-button">
+                            <img src="Assets/Polygon 1.png"></img>
+                        </button>-->
+                        <div class="outfit-container">
+                            <div id="outfit-display">
+                                <p1>outfit</p1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outfit-tabs">
+                        <button id="skin-option" class="option-button" onclick="showSkin()">4</button>
+                        <button id="hair-option" class="option-button" onclick="showHair()">5</button>
+                        <button id="top-option" class="option-button" onclick="showTops()">1</button>
+                        <button id="bottom-option" class="option-button" onclick="showBottoms()">2</button>                       
+                        <button id="done-button"></button>
+                    </div>
+                </div>
+                <div class="outfit-selection-container">
+                    <div id="top-options" class="top-options" style="display: flex">
+                        <button id="top1" class="clothes"></button>
+                        <button id="top2" class="clothes"></button>
+                        <button id="top3" class="clothes"></button>
+                    </div>
+                    <div id="bottom-options" class="bottom-options" style="display: none">
+                        <button id="bottom1" class="clothes"></button>
+                        <button id="bottom2" class="clothes"></button>
+                        <button id="bottom3" class="clothes"></button>
+                    </div>
+                    <div id="skin-options" class="skin-options" style="display: none">
+                        <button id="skin1" class="clothes"></button>
+                        <button id="skin2" class="clothes"></button>
+                        <button id="skin3" class="clothes"></button>
+                    </div>
+                    <div id="hair-options" class="hair-options" style="display: none">
+                        <button id="hair1" class="clothes"></button>
+                        <button id="hair2" class="clothes"></button>
+                        <button id="hair3" class="clothes"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js" defer></script>
+    </body>
+</html>
