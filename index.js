@@ -197,47 +197,116 @@ function Animate() {
 function done2() {
     document.getElementById('breakfast').style.display = 'none';
     alert("yum! Let's do something!")
-    document.getElementById('activity').style.display = 'flex';
+    document.getElementById('activity-container').style.display = 'flex';
 }
 
-var beachImgs = new Array()
-beachImgs = ['Assets/beach-0.png', 'Assets/beach-1.png', 'Assets/beach-2.png', 'Assets/beach-3.png', 'Assets/beach-4.png']
+var beachImgs = [
+    'Assets/beach-0.png',
+    'Assets/beach-1.png',
+    'Assets/beach-2.png',
+    'Assets/beach-3.png'
+];
 
+var parkImgs = [
+    'Assets/pixil-frame-0-1.png',
+    'Assets/pixil-frame-1-1.png',
+    'Assets/pixil-frame-2-1.png',
+    'Assets/pixil-frame-3-1.png'
+];
 
-setInterval("beachAnimate()", 400);
+var readImgs = [
+    'Assets/reading-0.png',
+    'Assets/reading-1.png',
+    'Assets/reading-2.png',
+    'Assets/reading-3.png'
+];
+
 var t = 0;
-
-function beachAnimate() {
-    document.getElementById("activity").src = images[t]
-    t++;
-    if (t==6){
-        document.getElementById('window').style.display = 'none';
-        dressUpGame.style.display = 'flex'
-    }
-}
-
-
-var parkImgs = new Array()
-parkImgs = ['Assets/pixil-frame-0-1.png', 'Assets/pixil-frame-1-1.png', 'Assets/pixil-frame-2-1.png', 'Assets/pixil-frame-3-1.png', 'Assets/pixil-frame-4-1.png']
-
-setInterval("beachAnimate()", 400);
 var p = 0;
+var r = 0;
 
+var activityInterval;
+
+
+// BEACH
+function beachAnimate() {
+
+    document.getElementById("activity").src = beachImgs[t];
+
+    t++;
+
+    if (t >= beachImgs.length) {
+        clearInterval(activityInterval);
+        t = 0;
+    }
+    // Removed duplicate check
+}
+
+
+// PARK
 function parkAnimate() {
-    document.getElementById("activity").src = images[p]
+
+    document.getElementById("activity").src = parkImgs[p];
+
     p++;
-    if (t==6){
-        document.getElementById('window').style.display = 'none';
-        dressUpGame.style.display = 'flex'
+
+    if (p >= parkImgs.length) {
+        clearInterval(activityInterval);
+        p = 0;
+    }
+    if (p >= parkImgs.length) {
+        p = 0;
     }
 }
 
-function updateActivity(option){
-    if (option==1){
-        beachAnimate();
-    } else if (option == 2){
-        parkAnimate();
-    } else{
-        readAnimate();
+
+// READING
+function readAnimate() {
+
+    document.getElementById("activity").src = readImgs[r];
+
+    r++;
+
+    if (r >= readImgs.length) {
+        clearInterval(activityInterval);
+        r = 0;
+    }
+    if (r >= readImgs.length) {
+        r = 0;
+    }
+}
+
+
+function updateActivity(option) {
+
+    clearInterval(activityInterval);
+
+    t = 0;
+    p = 0;
+    r = 0;
+
+    if (option == 1) {
+
+        // Show first beach image immediately
+        document.getElementById("activity").src = beachImgs[0];
+
+        // Start looping
+        activityInterval = setInterval(beachAnimate, 400);
+
+    } else if (option == 2) {
+
+        // Show first park image immediately
+        document.getElementById("activity").src = parkImgs[0];
+
+        // Start looping
+        activityInterval = setInterval(parkAnimate, 400);
+
+    } else {
+
+        // Show first reading image immediately
+        document.getElementById("activity").src = readImgs[0];
+
+        // Start looping
+        activityInterval = setInterval(readAnimate, 400);
     }
 }
