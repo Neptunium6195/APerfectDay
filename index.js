@@ -194,10 +194,13 @@ function Animate() {
     }
 }
 
+const music = new Audio('Assets/idoberg-cozy-lofi-beat-split-memmories-248205.mp3');
+
 function done2() {
     document.getElementById('breakfast').style.display = 'none';
     alert("yum! Let's do something!")
     document.getElementById('activity-container').style.display = 'flex';
+    music.play();
 }
 
 var beachImgs = [
