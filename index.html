@@ -10,11 +10,14 @@
             <h1 id="title" >A Perfect Day!</h1>
             <button id="startBtn" type="button" onclick="hideTitle()">Start!</button>
         </div>
+        <div id="window" class="animation" style="display:none">
+            <img id="img" src="Assets/pixil-frame-0.png">
+        </div>
         <div id="DressUp" class="container" style="display: none">
             <div id="Hi" class="inner-container">
                 <div class="inner-inner-container">
                     <div class="main-text">
-                        <p1 id="text-content">hihihi</p1>
+                        <p1 id="text-content" style="font: white">What should I wear today?</p1>
                     </div>
                     <div class="dressUp-container">
                         <!--<button id="left-button">
@@ -22,42 +25,99 @@
                         </button>-->
                         <div class="outfit-container">
                             <div id="outfit-display">
-                                <p1>outfit</p1>
+                                <img id="head" src="Assets/darkBaseCharacter..png" alt="Head" />
+                                <img id="hair" src="Assets/brownHair.png" alt="Hair" />
+                                <img id="shirt" src="Assets/shirt1.png" alt="Shirt" />
+                                <img id="skirt" src="Assets/pants.png" alt="Skirt" />
                             </div>
                         </div>
                     </div>
                     <div class="outfit-tabs">
-                        <button id="skin-option" class="option-button" onclick="showSkin()">4</button>
-                        <button id="hair-option" class="option-button" onclick="showHair()">5</button>
-                        <button id="top-option" class="option-button" onclick="showTops()">1</button>
-                        <button id="bottom-option" class="option-button" onclick="showBottoms()">2</button>                       
-                        <button id="done-button"></button>
+                        <button id="skin-option" class="option-button" type="button"></button>
+                        <button id="hair-option" class="option-button" type="button"></button>
+                        <button id="top-option" class="option-button" type="button"></button>
+                        <button id="bottom-option" class="option-button" type="button"></button>
+                        <button id="done-button" type="button" onclick="done()"></button>
                     </div>
                 </div>
                 <div class="outfit-selection-container">
-                    <div id="top-options" class="top-options" style="display: flex">
-                        <button id="top1" class="clothes"></button>
-                        <button id="top2" class="clothes"></button>
-                        <button id="top3" class="clothes"></button>
+                    <div id="top-options" class="top-options" style="display: none">
+                        <button id="top1" class="clothes" type="button"></button>
+                        <button id="top2" class="clothes" type="button"></button>
+                        <button id="top3" class="clothes" type="button"></button>
                     </div>
                     <div id="bottom-options" class="bottom-options" style="display: none">
-                        <button id="bottom1" class="clothes"></button>
-                        <button id="bottom2" class="clothes"></button>
-                        <button id="bottom3" class="clothes"></button>
+                        <button id="bottom1" class="clothes" type="button"></button>
+                        <button id="bottom2" class="clothes" type="button"></button>
+                        <button id="bottom3" class="clothes" type="button"></button>
                     </div>
-                    <div id="skin-options" class="skin-options" style="display: none">
-                        <button id="skin1" class="clothes"></button>
-                        <button id="skin2" class="clothes"></button>
-                        <button id="skin3" class="clothes"></button>
+                    <div id="skin-options" class="skin-options" style="display: flex">
+                        <button id="skin1" class="clothes" type="button"></button>
+                        <button id="skin2" class="clothes" type="button"></button>
+                        <button id="skin3" class="clothes" type="button"></button>
                     </div>
                     <div id="hair-options" class="hair-options" style="display: none">
-                        <button id="hair1" class="clothes"></button>
-                        <button id="hair2" class="clothes"></button>
-                        <button id="hair3" class="clothes"></button>
+                        <button id="hair1" class="clothes" type="button"></button>
+                        <button id="hair2" class="clothes" type="button"></button>
+                        <button id="hair3" class="clothes" type="button"></button>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="breakfast" class="container" style="display: none">
+            <div class="inner-container">
+                <div class="inner-inner-container">
+                    <div class="main-text">
+                        <p1 id="text-content" style="font: white">What should I eat today?</p1>
+                    </div>
+                    <div class="outfit-container">
+                        <div id="outfit-display">
+                            <img id="breakfastHead" src="Assets/darkBaseCharacter..png" alt="Head" />
+                            <img id="breakfastHair" src="Assets/brownHair.png" alt="Hair" />
+                            <img id="breakfastShirt" src="Assets/shirt1.png" alt="Shirt" />
+                            <img id="breakfastSkirt" src="Assets/pants.png" alt="Bottom" />
+                            <img id="food" src="Assets/pancakes.png"/>
+                        </div>
+                    </div>
+                    <div class="outfit-tabs">
+                        <button id="done-button" type="button" onclick="done2()"></button>
+                    </div>
+                </div>
+                <div class="outfit-selection-container">
+                    <div id="food-options" class="top-options" style="display: flex">
+                        <button id="food1" class="clothes" type="button" onclick=updateFood(1)></button>
+                        <button id="food2" class="clothes" type="button" onclick=updateFood(2)></button>
+                        <button id="food3" class="clothes" type="button" onclick=updateFood(3)></button>
+                        <button id="food4" class="clothes" type="button" onclick=updateFood(4)></button>
+                        <button id="food5" class="clothes" type="button" onclick=updateFood(5)></button>
+                        <button id="food6" class="clothes" type="button" onclick=updateFood(6)></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="activity" class="container" style="display: none">
+            <div class="inner-container">
+                <div class="inner-inner-container">
+                    <div class="main-text">
+                        <p1 id="text-content" style="font: white">What should I doo today?</p1>
+                    </div>
+                    <div class="outfit-container">
+                        <div id="outfit-display">
+                            <img id="activity" src="Assets/beach-0.png" alt="Head" />
+                        </div>
+                    </div>
+                    <div class="outfit-tabs">
+                        <button id="done-button" type="button" onclick="done2()"></button>
+                    </div>
+                </div>
+                <div class="outfit-selection-container">
+                    <div id="activity-options" class="top-options" style="display: flex">
+                        <button id="Activity1" class="clothes" type="button" onclick=updateActivity(1)>Beach!</button>
+                        <button id="Activity2" class="clothes" type="button" onclick=updateActivity(2)>Park + music!</button>
+                        <button id="Activity3" class="clothes" type="button" onclick=updateActivity(3)>Reading</button>
+                    </div>
+                </div>
+            </div>
         <script src="index.js" defer></script>
     </body>
 </html>

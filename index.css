@@ -1,33 +1,37 @@
+body {
+    background: linear-gradient(45deg, #FFCACA, #FFEBEB, #FDFBD4);
+}
 
-/*.container {
-    position: relative;
-    width: 400px;
-    background: blue;
-    display: flex;
-    justify-content: center;
-    border: 15px;
-    border-radius: 5px;
-    align-items: center;
-    overflow: hidden;
-    vertical-align: center;
-}*/
+@font-face {
+  font-family: 'Jersey25';
+  src: url('Assets/Jersey_25/Jersey25-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
-/*.container {
+html, body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#DressUp {
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-    
-    background: blue;
-    border: 15px;
-    border-radius: 5px;
-    overflow: hidden;
-}*/
+    justify-content: center;
+    width: auto;
+}
 
 .container {
   position: relative;
   width: 400px; /* Fixed width for larger screens */
-  aspect-ratio: 400 / 532;
+  aspect-ratio: 400 / 652;
   border-radius: 1.18481rem;
 
   background: linear-gradient(126deg, #84CCE0 7.09%, #C6E9F3 71.5%);
@@ -40,7 +44,7 @@
 .inner-container {
   position: relative;
   width: 95%; /* Fixed width for larger screens */
-  aspect-ratio: 360 / 480;
+  aspect-ratio: 360 / 590;
   border-radius: 1.18481rem;
   background: #FDF7E9;
   display: flex;
@@ -70,6 +74,7 @@
 
 .main-text { /*image*/
   position: relative;
+  font: 90px;
   height: 12%; 
   width: 100%;
   aspect-ratio: 359 / 60;
@@ -91,6 +96,14 @@
   padding: 10%;
   justify-content: center;
   align-items: center;
+  font-family: 'Jersey25', sans-serif;
+  color: white;
+}
+
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .dressUp-container {
@@ -103,37 +116,75 @@
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   transition: background-color 0.5s ease, background-image 0.5s ease;
 }
 
 .outfit-container {
-  width: 50%;
-  aspect-ratio: 180 / 260;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; 
-  overflow: hidden;
+    width: 100%;
+    aspect-ratio: 180 / 260;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
-#outfit-display {
-  position: relative; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; 
-  height: 100%; 
-}
 
+/* Character images */
 #outfit-display img {
-  position: absolute;
-  top: 0;
-  width: 100%; /* Adjust the size of the outfit elements */
-  z-index: 1; /* Default z-index for stacking */
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    max-width: none;
+    object-fit: contain;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* Keep the character centered in both scenes */
+#outfit-display {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Character layering */
+#head {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+#hair {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+#skirt {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+#shirt {
+    position: absolute;
+    top: 0;
+    z-index: 4;
+}
+
+#food {
+    position: absolute;
+    z-index: 5;
+    margin-top: 90px;
 }
 
 button {
@@ -155,7 +206,7 @@ button:hover {
 
 .outfit-tabs {
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: 0;
   right: 0;
   height: 10%;
@@ -168,13 +219,17 @@ button:hover {
 }
 
 .option-button {
-  background: #C8ECE4;  
   cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .option-button.selected {
-  background-color: #F9FFDB; /* Background color when selected */
-  color: F9FFDB;
+  background-color: #F9FFDB;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
 }
 
 #top-option {
@@ -182,13 +237,13 @@ button:hover {
   border-top: 2.528px solid white;
   border-right: 2.528px solid white;
   border-left: 2.528px solid white;
-  background: #FFEACF;  
-  width: 20%; 
+  background-color: #FFEACF;
+  width: 20%;
   aspect-ratio: 94/33;
-  background-image: url('assets/label-icons/shirt-icon.png');
-  background-size: 38%; 
+  background-image: url('Assets/shirtIcon.png');
+  background-size: 52%;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
 }
 
 #bottom-option {
@@ -196,13 +251,13 @@ button:hover {
   border-top: 2.528px solid white;
   border-right: 2.528px solid white;
   border-left: 2.528px solid white;
-  background: #FFEACF;  
-  width: 20%; 
+  background-color: #FFEACF;
+  width: 20%;
   aspect-ratio: 94/33;
-  background-image: url('assets/label-icons/pants-icon.png');
-  background-size: 38%; 
+  background-image: url('Assets/pantsicon.png');
+  background-size: 52%;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
 }
 
 #skin-option {
@@ -210,13 +265,13 @@ button:hover {
   border-top: 2.528px solid white;
   border-right: 2.528px solid white;
   border-left: 2.528px solid white;
-  background: #FFEACF;  
-  width: 20%; 
+  background-color: #FFEACF;
+  width: 20%;
   aspect-ratio: 94/33;
-  background-image: url('assets/label-icons/hat-icon.png');
-  background-size: 38%; 
+  background-image: url('Assets/smileIcon.png');
+  background-size: 52%;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
 }
 
 #hair-option {
@@ -224,52 +279,118 @@ button:hover {
   border-top: 2.528px solid white;
   border-right: 2.528px solid white;
   border-left: 2.528px solid white;
-  background: #FFEACF;  
-  width: 20%; 
+  background-color: #FFEACF;
+  width: 20%;
   aspect-ratio: 94/33;
-  background-image: url('assets/label-icons/hat-icon.png');
-  background-size: 38%; 
+  background-image: url('Assets/hairIcon.png');
+  background-size: 52%;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
 }
 
+.selection-container {
+  position: relative;
+  height: 26%;
+  width: 100%;
+  aspect-ratio: 360 / 127;
+  border-top: 2.528px solid #50A486;
+  background: linear-gradient(90deg, #F9FFDB 2.73%, #D0EDF4 42.4%, #C4E7FB 54.49%, #9EDAE2 67.71%, #F9FFDB 96.03%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4%;
+}
+
+.outfit-selection-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.top-options,
+.bottom-options,
+.skin-options,
+.hair-options,
+#food-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  width: max-content;
+  min-width: 100%;
+  overflow: visible;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.25rem;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+#food-options {
+  scrollbar-width: thin;
+}
 
 #done-button {
   width: 1.93525rem;
   height: 1.73775rem;
   flex-shrink: 0;
   background-image: url('Assets/Group 5.png');
-  background-size: 90%; /* Set custom width and height (50% of element width and height) */
+  background-size: 90%;
   background-repeat: no-repeat;
-  background-position: center center; /* Center the image */
+  background-position: center center;
 }
 
 .clothes {
-    display: flex;
-    width: 6.16113rem;
-    aspect-ratio: 99 / 71;
-    padding: 0.89975rem 0.81206rem 0.536rem 0.91963rem;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    border-radius: 0.78988rem;
-    background: #FFF;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+  display: flex;
+  width: 6.16113rem;
+  aspect-ratio: 99 / 71;
+  padding: 0.89975rem 0.81206rem 0.536rem 0.91963rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  border: solid #FFD7A5;
+  border-radius: 0.78988rem;
+  background-color: #FFF5E9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
-#bottom1 {
-    background-image: 'Assets/9C9135DA-8D82-4CBF-8411-FE3BAF740514_4_5005_c.jpeg';
-}
+#skin1 { background-image: url('Assets/tanBaseCharacter..png'); }
+#skin2 { background-image: url('Assets/lightBaseCharacter.png'); }
+#skin3 { background-image: url('Assets/darkBaseCharacter..png'); }
 
-#bottom2 {
-    background-image: 'Assets/951DCD4D-36B1-4CC6-98D7-3E5FAF4546D4_4_5005_c.jpeg';
-}
+#hair1 { background-image: url('Assets/blackHair.png'); }
+#hair2 { background-image: url('Assets/brownHair.png'); }
+#hair3 { background-image: url('Assets/pinkHair.png'); }
 
-#bottom3 {
-    background-image: 'Assets/EDAA882C-EC58-498B-917A-6B99E0CA730E_4_5005_c.jpeg';
+#top1 { background-image: url('Assets/shirt1.png'); }
+#top2 { background-image: url('Assets/shirt2.png'); }
+#top3 { background-image: url('Assets/shirt3.png'); }
+
+#bottom1 { background-image: url('Assets/pants.png'); }
+#bottom2 { background-image: url('Assets/pants2.png'); }
+#bottom3 { background-image: url('Assets/skirt.png'); }
+
+#food3 {background-image: url('Assets/pancakes.png')}
+#food5 {background-image: url('Assets/eggsBacon.png')}
+#food1 {background-image: url('Assets/toast.png')}
+#food2 {background-image: url('Assets/pizza.png')}
+#food4 {background-image: url('Assets/onigiri.png')}
+#food6 {background-image: url('Assets/croissant.png')}
+
+
+.animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    padding: 2px;
 }
 
 /*#right-button {
@@ -281,3 +402,4 @@ button:hover {
     margin: 0px;
     padding-left: 2%;
 }*/
+
