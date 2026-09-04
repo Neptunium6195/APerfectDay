@@ -1,5 +1,17 @@
 body {
-    background: linear-gradient(45deg, #FFCACA, #FFEBEB, #FDFBD4);
+  background: linear-gradient(45deg, #FFCACA, #FFEBEB, #FDFBD4);
+}
+
+.titleScreen {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('Assets/TitleScreen (1).png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @font-face {
@@ -22,10 +34,19 @@ body {
 }
 
 #DressUp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+#startBtn{
+  background-image: url('Assets/startButton.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 18%;
+  margin-top: 50vh;
 }
 
 .container {
@@ -87,7 +108,8 @@ body {
 }
 
 #text-content {
-  height: width 40%;
+  height: width 50%;
+  font-size: 1.5rem;
   background-position: center; 
   background-repeat: no-repeat; 
   max-width: 80%; 
@@ -115,22 +137,23 @@ img {
   background-size: cover; 
   background-repeat: no-repeat;
   background-position: center center;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   transition: background-color 0.5s ease, background-image 0.5s ease;
+  display: flex;
 }
 
 .outfit-container {
-    width: 100%;
-    aspect-ratio: 180 / 260;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  aspect-ratio: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  height: 100%;
 }
 
 
@@ -224,6 +247,7 @@ button:hover {
   background-repeat: no-repeat;
   transition: all 0.2s ease;
   box-sizing: border-box;
+
 }
 
 .option-button.selected {
@@ -344,7 +368,7 @@ button:hover {
 
 .clothes {
   display: flex;
-  width: 6.16113rem;
+  width: 7rem;
   aspect-ratio: 99 / 71;
   padding: 0.89975rem 0.81206rem 0.536rem 0.91963rem;
   justify-content: center;

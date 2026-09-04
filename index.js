@@ -49,6 +49,7 @@ function hideTitle() {
   Animate()
   if (startScreen) startScreen.style.display = 'none';
   if (dressUpGame) dressUpGame.style.display = 'none';
+  setInterval("Animate()", 300);
 }
 
 function setVisibleTab(tabKey) {
@@ -64,13 +65,13 @@ function setVisibleTab(tabKey) {
 const shirtImages = ['Assets/shirt1.png', 'Assets/shirt2.png', 'Assets/shirt3.png']
 
 function updateShirt(option) {
-    shirt.src = shirtImages[option -1];
+  shirt.src = shirtImages[option -1];
 }
 
 const skirtImages = ['Assets/skirt.png', 'Assets/shirt2.png', 'Assets/shirt3.png']
 
 function updateSkirt(option) {
-    shirt.src = shirtImages[option -1];
+  skirt.src = skirtImages[option -1];
 }
 
 function attachOptionHandlers() {
@@ -157,7 +158,7 @@ function attachTabHandlers() {
 }
 
 function updateFood(option) {
-    food.src = foodOptions[option -1];
+  food.src = foodOptions[option -1];
 }
 
 attachTabHandlers();
@@ -166,15 +167,15 @@ syncOutfitPreview();
 setVisibleTab('skin');
 
 function done() {
-    breakfastHead.src = outfitState.skinSrc;
-    breakfastHair.src = outfitState.hairSrc;
-    breakfastShirt.src = outfitState.shirtSrc;
-    breakfastSkirt.src = outfitState.skirtSrc;
+  breakfastHead.src = outfitState.skinSrc;
+  breakfastHair.src = outfitState.hairSrc;
+  breakfastShirt.src = outfitState.shirtSrc;
+  breakfastSkirt.src = outfitState.skirtSrc;
 
-    dressUpGame.style.display = 'none';
-    document.getElementById('breakfast').style.display = 'flex';
+  dressUpGame.style.display = 'none';
+  document.getElementById('breakfast').style.display = 'flex';
 
-    alert("Time for Breakfast!");
+  alert("Time for Breakfast!");
 }
 
 
@@ -182,46 +183,50 @@ var images = new Array()
 images = ['Assets/pixil-frame-0.png','Assets/pixil-frame-1.png', 'Assets/pixil-frame-2.png', 'Assets/pixil-frame-3.png', 'Assets/pixil-frame-4.png', 'Assets/pixil-frame-5.png', 'Assets/pixil-frame-6.png', 'Assets/pixil-frame-7.png', 'Assets/pixil-frame-8.png'
 ];
 
-setInterval("Animate()", 200);
 var x = 0;
 
 function Animate() {
-    document.getElementById("img").src = images[x]
-    x++;
-    if (x==10){
-        document.getElementById('window').style.display = 'none';
-        dressUpGame.style.display = 'flex'
-    }
+  document.getElementById("img").src = images[x]
+  x++;
+  if (x==10){
+    document.getElementById('window').style.display = 'none';
+    alert("Good Morning!");
+    alert("Let's have a perfect day!");
+    alert("First, let's get dressed!");
+    dressUpGame.style.display = 'flex'
+  }
 }
 
-const music = new Audio('Assets/idoberg-cozy-lofi-beat-split-memmories-248205.mp3');
+const music = new Audio('Assets/freesound_community-beach-ambiance-16328.mp3');
+const music2 = new Audio('Assets/Laufey - Falling Behind (Official Audio).mp3');
+const music3 = new Audio('Assets/idoberg-cozy-lofi-beat-split-memmories-248205.mp3');
 
 function done2() {
-    document.getElementById('breakfast').style.display = 'none';
-    alert("yum! Let's do something!")
-    document.getElementById('activity-container').style.display = 'flex';
-    music.play();
+  document.getElementById('breakfast').style.display = 'none';
+  alert("yum! Let's do something!")
+  document.getElementById('activity-container').style.display = 'flex';
+
 }
 
 var beachImgs = [
-    'Assets/beach-0.png',
-    'Assets/beach-1.png',
-    'Assets/beach-2.png',
-    'Assets/beach-3.png'
+  'Assets/beach-0.png',
+  'Assets/beach-1.png',
+  'Assets/beach-2.png',
+  'Assets/beach-3.png'
 ];
 
 var parkImgs = [
-    'Assets/pixil-frame-0-1.png',
-    'Assets/pixil-frame-1-1.png',
-    'Assets/pixil-frame-2-1.png',
-    'Assets/pixil-frame-3-1.png'
+  'Assets/pixil-frame-0-1.png',
+  'Assets/pixil-frame-1-1.png',
+  'Assets/pixil-frame-2-1.png',
+  'Assets/pixil-frame-3-1.png'
 ];
 
 var readImgs = [
-    'Assets/reading-0.png',
-    'Assets/reading-1.png',
-    'Assets/reading-2.png',
-    'Assets/reading-3.png'
+  'Assets/reading-0.png',
+  'Assets/reading-1.png',
+  'Assets/reading-2.png',
+  'Assets/reading-3.png'
 ];
 
 var t = 0;
@@ -230,86 +235,96 @@ var r = 0;
 
 var activityInterval;
 
-
-// BEACH
 function beachAnimate() {
 
-    document.getElementById("activity").src = beachImgs[t];
+  document.getElementById("activity").src = beachImgs[t];
+  t=(t+1) % beachImgs.length;
 
-    t++;
+  if (t >= beachImgs.length) {
+    clearInterval(activityInterval);
+    t = 0;
+  }
 
-    if (t >= beachImgs.length) {
-        clearInterval(activityInterval);
-        t = 0;
-    }
-    // Removed duplicate check
 }
 
-
-// PARK
 function parkAnimate() {
 
-    document.getElementById("activity").src = parkImgs[p];
+  document.getElementById("activity").src = parkImgs[p];
+  p = (p + 1) % parkImgs.length;
 
-    p++;
-
-    if (p >= parkImgs.length) {
-        clearInterval(activityInterval);
-        p = 0;
-    }
-    if (p >= parkImgs.length) {
-        p = 0;
-    }
+  if (p >= parkImgs.length) {
+    clearInterval(activityInterval);
+    p = 0;
+  }
+  if (p >= parkImgs.length) {
+    p = 0;
+  }
 }
 
-
-// READING
 function readAnimate() {
 
-    document.getElementById("activity").src = readImgs[r];
+  document.getElementById("activity").src = readImgs[r];
 
-    r++;
+  r = (r + 1) % readImgs.length;
 
-    if (r >= readImgs.length) {
-        clearInterval(activityInterval);
-        r = 0;
-    }
-    if (r >= readImgs.length) {
-        r = 0;
-    }
+  if (r >= readImgs.length) {
+    clearInterval(activityInterval);
+    r = 0;
+  }
+  if (r >= readImgs.length) {
+    r = 0;
+  }
 }
 
 
 function updateActivity(option) {
 
-    clearInterval(activityInterval);
+  clearInterval(activityInterval);
 
-    t = 0;
-    p = 0;
-    r = 0;
+  t = 0;
+  p = 0;
+  r = 0;
 
-    if (option == 1) {
+  if (option == 1) {
 
-        // Show first beach image immediately
-        document.getElementById("activity").src = beachImgs[0];
+    document.getElementById("activity").src = beachImgs[0];
 
-        // Start looping
-        activityInterval = setInterval(beachAnimate, 400);
+    activityInterval = setInterval(beachAnimate, 400);
+    music3.pause()
+    music2.pause
 
-    } else if (option == 2) {
+    music.play();
 
-        // Show first park image immediately
-        document.getElementById("activity").src = parkImgs[0];
+  } else if (option == 2) {
+    music.pause()
+    music3.pause()
 
-        // Start looping
-        activityInterval = setInterval(parkAnimate, 400);
+    document.getElementById("activity").src = parkImgs[0];
+    activityInterval = setInterval(parkAnimate, 400);
 
-    } else {
+    music2.play();
 
-        // Show first reading image immediately
-        document.getElementById("activity").src = readImgs[0];
+  } else {
+    music.pause()
+    music2.pause()
+    music3.play()
 
-        // Start looping
-        activityInterval = setInterval(readAnimate, 400);
-    }
+    document.getElementById("activity").src = readImgs[0];
+    activityInterval = setInterval(readAnimate, 400);
+  }
+}
+
+function done3() {
+  const container = document.getElementById('outfit-selection-container');
+  const tabs = document.getElementById('outfit-tabs');
+  const text = document.getElementById('text-content');
+
+  // Safely check if elements exist before modifying them
+  if (container) container.style.display = 'none';
+  if (tabs) tabs.style.display = 'none';
+  if (text) text.textContent = "What a great end to a perfect day!";
+  setTimeout(() => {
+    alert("The end! Thank you for playing!");
+  }, 300);
+
 }

@@ -6,9 +6,8 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <div id="TitleScreen" style="display: block">
-            <h1 id="title" >A Perfect Day!</h1>
-            <button id="startBtn" type="button" onclick="hideTitle()">Start!</button>
+        <div id="TitleScreen" style="display: flex" class="titleScreen">
+            <button id="startBtn" type="button" onclick="hideTitle()"></button>
         </div>
         <div id="window" class="animation" style="display:none">
             <img id="img" src="Assets/pixil-frame-0.png">
@@ -23,7 +22,7 @@
                         <!--<button id="left-button">
                             <img src="Assets/Polygon 1.png"></img>
                         </button>-->
-                        <div class="outfit-container">
+                        <div class="outfit-container" style="margin-top: 30%; margin-left: 10%;">
                             <div id="outfit-display">
                                 <img id="head" src="Assets/darkBaseCharacter..png" alt="Head" />
                                 <img id="hair" src="Assets/brownHair.png" alt="Hair" />
@@ -70,7 +69,7 @@
                     <div class="main-text">
                         <p1 id="text-content" style="font: white">What should I eat today?</p1>
                     </div>
-                    <div class="outfit-container">
+                    <div class="outfit-container" style="margin-bottom: 10%; margin-left: 3%">
                         <div id="outfit-display">
                             <img id="breakfastHead" src="Assets/darkBaseCharacter..png" alt="Head" />
                             <img id="breakfastHair" src="Assets/brownHair.png" alt="Hair" />
@@ -99,7 +98,7 @@
             <div class="inner-container">
                 <div class="inner-inner-container">
                     <div class="main-text">
-                        <p1 id="text-content" style="font: white">What should I doo today?</p1>
+                        <p1 id="text-content" style="font: white">What should I do today?</p1>
                     </div>
                     <div class="outfit-container">
                         <div id="outfit-display">
@@ -107,7 +106,7 @@
                         </div>
                     </div>
                     <div class="outfit-tabs">
-                        <button id="done-button" type="button" onclick="done2()"></button>
+                        <button id="done-button" type="button" onclick="done3()"></button>
                     </div>
                 </div>
                 <div class="outfit-selection-container">
